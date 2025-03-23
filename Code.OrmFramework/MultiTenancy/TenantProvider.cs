@@ -3,8 +3,9 @@
     public class TenantProvider : ITenantProvider
     {
         private readonly Dictionary<string, string> _tenants;
-        private string _currentTenant = "DefaultTenant";
+        private string _currentTenant;
 
+        // Tenant bilgileri ve veritabanı bağlantı dizelerini burada saklıyoruz
         public TenantProvider(Dictionary<string, string> tenantConnections)
         {
             _tenants = tenantConnections;
@@ -22,7 +23,7 @@
 
         public string GetConnectionString(string tenantId)
         {
-            return _tenants.TryGetValue(tenantId, out var connStr) ? connStr : null;
+            return _tenants.TryGetValue(tenantId, out var connectionString) ? connectionString : null;
         }
     }
 }

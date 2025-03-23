@@ -11,5 +11,8 @@ namespace Code.OrmFramework.UnitOfWork
             where TDto : class, IDto;
 
         Task SaveChangesAsync();
+        Task BeginTransactionAsync();
+        Task CommitTransactionAsync();
+        Task RollbackTransactionAsync();
     }
 }

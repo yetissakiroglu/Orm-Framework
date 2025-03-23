@@ -2,8 +2,8 @@
 {
     public interface ITenantProvider
     {
-        string GetCurrentTenant();
-        void SetCurrentTenant(string tenantId);
-        string GetConnectionString(string tenantId);
+        string GetCurrentTenant();  // Mevcut kiracıyı döndürür
+        void SetCurrentTenant(string tenantId);  // Kiracıyı ayarlar
+        string GetConnectionString(string tenantId);  // Kiracının veritabanı bağlantısını döndürür
     }
 }
