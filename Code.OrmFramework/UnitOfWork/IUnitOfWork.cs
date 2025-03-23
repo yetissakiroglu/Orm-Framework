@@ -6,11 +6,11 @@ namespace Code.OrmFramework.UnitOfWork
 {
     public interface IUnitOfWork
     {
-        IRepository<TEntity, TDto> Repository<TEntity, TDto>()
-            where TEntity : class, IEntity
+        IRepository<TEntity, TDto, TId> Repository<TEntity, TDto, TId>()
+            where TEntity :  IEntity<TId>
             where TDto : class, IDto;
 
-        Task SaveChangesAsync();
+        Task<int> SaveChangesAsync();
         Task BeginTransactionAsync();
         Task CommitTransactionAsync();
         Task RollbackTransactionAsync();

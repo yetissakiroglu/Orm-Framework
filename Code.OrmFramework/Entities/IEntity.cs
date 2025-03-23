@@ -1,7 +1,11 @@
 ﻿namespace Code.OrmFramework.Entities
 {
-    public interface IEntity
+    public abstract class IEntity<TId> : ISoftDelete, IHasId<TId>
     {
-        int Id { get; set; }
+        public required TId Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
+
+
+
 }

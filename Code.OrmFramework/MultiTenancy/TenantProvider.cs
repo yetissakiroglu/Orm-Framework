@@ -1,15 +1,9 @@
 ﻿namespace Code.OrmFramework.MultiTenancy
 {
-    public class TenantProvider : ITenantProvider
+    public class TenantProvider(Dictionary<string, string> tenantConnections) : ITenantProvider
     {
-        private readonly Dictionary<string, string> _tenants;
+        private readonly Dictionary<string, string> _tenants = tenantConnections;
         private string _currentTenant;
-
-        // Tenant bilgileri ve veritabanı bağlantı dizelerini burada saklıyoruz
-        public TenantProvider(Dictionary<string, string> tenantConnections)
-        {
-            _tenants = tenantConnections;
-        }
 
         public string GetCurrentTenant() => _currentTenant;
 
